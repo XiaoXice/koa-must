@@ -1,0 +1,23 @@
+{
+  "name": "koa-must",
+  "version": "0.0.1",
+  "description": "Ensure that the request complies with the relevant specifications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XiaoXice/koa-must.git"
+  },
+  "keywords": [
+    "koa",
+    "auth"
+  ],
+  "author": "Xice <liangxiao0991@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XiaoXice/koa-must/issues"
+  },
+  "homepage": "https://github.com/XiaoXice/koa-must#readme"
+}
