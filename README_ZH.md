@@ -1,9 +1,11 @@
 Koa2-auth
 ====
 [English](https://github.com/XiaoXice/koa2-auth/blob/master/README.md)
+
 用于Koa2的一个优雅简洁的权限检测中间件
 
 ##安装
+
 ```
 npm install --production koa2-auth
 ```
