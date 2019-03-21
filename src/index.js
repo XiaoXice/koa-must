@@ -14,7 +14,7 @@ class AuthBase {
      * @param {asyncFunction} verifier Authorization function.
      * @returns {AuthBase} Return itself
      */
-    regist(baseName, verifier) {
+    register(baseName, verifier) {
         let authRouteTree = baseName.split("::");
         let nodeName = authRouteTree.pop();
         let thisNode = this.authRouter;
@@ -77,9 +77,7 @@ class AuthBase {
      */
     auth() {
         return (ctx, next) => {
-            ctx.auth = {
-                must: authRoute => this.mustCan(authRoute, ctx),
-            };
+            ctx.auth = {must: authRoute => this.mustCan(authRoute, ctx)};
 
             return next()
         }

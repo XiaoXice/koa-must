@@ -1,23 +1,31 @@
 {
-  "name": "koa2-auth",
-  "version": "0.0.1",
-  "description": "Ensure that the request complies with the relevant specifications",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/XiaoXice/koa2-auth.git"
-  },
-  "keywords": [
-    "koa",
-    "auth"
-  ],
-  "author": "Xice <liangxiao0991@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/XiaoXice/koa2-auth/issues"
-  },
-  "homepage": "https://github.com/XiaoXice/koa2-auth#readme"
+    "name": "koa2-auth",
+    "version": "0.0.1",
+    "description": "A elegant authorization middleware for koa2",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/XiaoXice/koa2-auth.git"
+    },
+    "keywords": [
+        "koa2",
+        "auth"
+    ],
+    "author": "Xice <liangxiao0991@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/XiaoXice/koa2-auth/issues"
+    },
+    "homepage": "https://github.com/XiaoXice/koa2-auth#readme",
+    "devDependencies": {
+        "eslint": "^5.15.3"
+    },
+    "engines": {
+
+        "node": ">= 4"
+
+    }
 }

@@ -1,9 +1,28 @@
-koa2-auth
+Koa2-auth
 ====
 
-一个初学者写的乱七八糟的不知道应该叫什么名字的权限检测模块。
+[![](https://img.shields.io/npm/dw/koa2-auth.svg)](https://www.npmjs.com/package/koa2-auth)
+[![](https://img.shields.io/node/v/koa2-auth.svg)](https://www.npmjs.com/package/koa2-auth)
 
-## 简单使用方法
+A elegant authorization middleware for Koa2.
+
+##Install
+```
+npm install --production koa2-auth
+```
+
+## Usage
+
+Before you use any authorization, please register it first.
+```js
+Auth.prototype.register(authName,function callback(ctx[,next]))
+```
+The you can use following to check the permission.
+```js
+ctx.auth.must("authName");
+```
+
+##Example
 
 ```js
 var Koa = require('koa');
@@ -11,12 +30,12 @@ var app = new Koa();
 let Auth = require("koa2-auth");
 let auth = new Auth();
 
-auth.regist("Never::base", async ctx => {
+auth.register("Never::base", async ctx => {
     ctx.throw(401, {
         code: 419,
-        msg: "禁止一切！"
+        msg: "All Access denied!"
     })
-})
+})//before you use, you must register it first.
 
 app.use(auth.auth());
 
@@ -25,56 +44,55 @@ app.use(async ctx => {
     ctx.response.status = 200;
     ctx.response.body = JSON.stringify({
         code: 200,
-        msg: "永远不会返回这个东西"
+        msg: "This will never return."
     })
 })
 ```
 
-## 权限标识样例
+## Permisson Symbol Example
 
-- 注册:
-  - `base` 基础验证 基本用来确保session存在之类的
-  - `User::base` 用户的基础权限验证 确保这是个用户
-  - `User::password::write` 一个自定义的权限验证
-  - `Item::base` 物品基础验证
-  - `Item::*::Admin` 模糊匹配
-  - `Item::*::base` 模糊匹配 也可以使用基础模式
-  - `Item::main::creat` 具体命令
-- 使用
-  - `base` 会触发下面的验权
+- register:
+  - `base` Base authorization  Eg: You can use it to check if the session exist. 
+  - `User::base` User's base autorization  Eg: Ensure it's a user.
+  - `User::password::write` A custom authorzation
+  - `Item::base` Item base authorzation
+  - `Item::*::Admin` Illegibility matching
+  - `Item::*::base` Illegibility matching can also use base mode
+  - `Item::main::creat`  Specific checking
+- usage
+  - `base` will trigger following checking
     - `base`
-  - `User::base` 会触发
+  - `User::base` will trigger
     - `base`
     - `User::base`
-  - `User::password::write` 会触发
+  - `User::password::write`  will trigger
     - `base`
     - `User::base`
     - `User::password::write`
-  - `Item::ASDFAWSL::Admin` 会触发
+  - `Item::ASDFAWSL::Admin` will trigger
     - `base`
     - `Item::base`
     - `Item::*::base`
     - `Item::*::Admin`
-  - `Item::main::creat` 会触发
+  - `Item::main::creat` will trigger
     - `base`
     - `Item::base`
     - `Item::main::creat`
 
-## 验权函数
+## Authorization Function
 
-验权函数如果不抛出异常则代表通过，异步处理请使用`Promise`或者`async`，作为注册函数的第二个参数传入。
+If the authorization funtion doesn't throw an error, it means that the permission checking pass. So please use `Promise` or `async` in your callback function, as the second param.
 
-调用函数会传入一个参数就是`ctx`，这个就是Koa一般意义上的ctx
+The callback function's first param is `ctx`, which are just the context we know in `Koa`.
 
-模糊匹配中的值会保存在`ctx.auth.params`中，这是一个数组。多个模糊匹配将顺次存放在这里。
+Values in each illegibility matching will be stored in array `ctx.auth.params`.
 
-如果验权通过，可以返回任意值，对于运行没有影响，如果验权错误请使用`ctx.throw`将问题直接抛出，或者手动：
-
+If the checking pass, you can return any value, it has no influence on the running; if checking fail, please use `ctx.throw` to throw the error, or manually:
 ```js
-const err = new Error('这个错误不能被容忍！');
-err.status = 403; // 不设置这个会默认 500
-err.expose = true; // 默认会帮你设置成true，除非强制设置为false
+const err = new Error('Stop here!');
+err.status = 403; // Set error code or client will get a 500.
+err.expose = true; // Default is true
 throw err;
 ```
 
-如果验权的时候有什么想返回的，可以放在`ctx.auth.checkBack`中取用。所有的判断会顺序依次执行，一旦抛出错误就会停止。所以在后面的验权模块中并不用担心会出现未定义的问题。
+During the checking, if you have something want to return, you can store it in the `ctx.auth.checkBack` and use it later. All checking will be executed in order, once throw an error, all checking will stop immediately, so you needn't to worry about `undefined` problem.
