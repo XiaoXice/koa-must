@@ -15,6 +15,7 @@
         "auth"
     ],
     "author": "Xice <liangxiao0991@gmail.com>",
+    "registry": "http://registry.npmjs.org",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/XiaoXice/koa2-auth/issues"
