@@ -2,7 +2,7 @@
     "name": "koa2-auth",
     "version": "0.0.1",
     "description": "A elegant authorization middleware for koa2",
-    "main": "index.js",
+    "main": "src/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
