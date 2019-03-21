@@ -7,7 +7,7 @@ Koa2-auth
 
 A elegant authorization middleware for Koa2.
 
-##Install
+## Install
 
 ```
 npm install --production koa2-auth
