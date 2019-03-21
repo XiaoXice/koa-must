@@ -4,7 +4,7 @@ Koa2-auth
 
 用于Koa2的一个优雅简洁的权限检测中间件
 
-##安装
+## 安装
 
 ```
 npm install --production koa2-auth
