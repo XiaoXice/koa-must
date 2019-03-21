@@ -1,6 +1,6 @@
 Koa2-auth
 ====
-
+[中文](https://github.com/XiaoXice/koa2-auth/blob/master/README_ZH.md)
 [![](https://img.shields.io/npm/dw/koa2-auth.svg)](https://www.npmjs.com/package/koa2-auth)
 [![](https://img.shields.io/node/v/koa2-auth.svg)](https://www.npmjs.com/package/koa2-auth)
 
