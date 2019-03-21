@@ -1,5 +1,5 @@
 {
-  "name": "koa-must",
+  "name": "koa2-auth",
   "version": "0.0.1",
   "description": "Ensure that the request complies with the relevant specifications",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XiaoXice/koa-must.git"
+    "url": "git+https://github.com/XiaoXice/koa2-auth.git"
   },
   "keywords": [
     "koa",
@@ -17,7 +17,7 @@
   "author": "Xice <liangxiao0991@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/XiaoXice/koa-must/issues"
+    "url": "https://github.com/XiaoXice/koa2-auth/issues"
   },
-  "homepage": "https://github.com/XiaoXice/koa-must#readme"
+  "homepage": "https://github.com/XiaoXice/koa2-auth#readme"
 }

@@ -1,4 +1,4 @@
-koa-must
+koa2-auth
 ====
 
 一个初学者写的乱七八糟的不知道应该叫什么名字的权限检测模块。
@@ -8,7 +8,7 @@ koa-must
 ```js
 var Koa = require('koa');
 var app = new Koa();
-let Auth = require("koa-must");
+let Auth = require("koa2-auth");
 let auth = new Auth();
 
 auth.regist("Never::base", async ctx => {
