@@ -1,6 +1,6 @@
 {
     "name": "koa2-auth",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A elegant authorization middleware for koa2",
     "main": "src/index.js",
     "scripts": {
